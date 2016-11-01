@@ -4,9 +4,10 @@
 #include <util/delay.h>
 
 #define LCDPORT P2
+
 sbit RS=LCDPORT^0;
 sbit RW=LCDPORT^1;
-sbit E =LCDPORT^2;
+sbit E=LCDPORT^2;
 
 int ch; 
 
@@ -111,7 +112,6 @@ void timer(){
 
 	//button timer with ISR code
 
-
 	write_command(0x01);     //clear screen
 	write_string("B1(Timer), B2(Bang)");
 	write_command(0xC0);
@@ -142,7 +142,7 @@ void bang(){
 	write_command(0x01);     //clear screen
 	write_string("Player 1 presses B1");
 	write_command(0xC0);
-	write_string("Player 2 presser B2");
+	write_string("Player 2 presses B2");
 	_delay_ms(1000);
 	write_command(0x01);     //clear screen
 	write_string("The player who presses first wins");
